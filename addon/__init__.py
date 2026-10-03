@@ -338,7 +338,7 @@ class ExportStellarBladeFBX(bpy.types.Operator, ExportHelper):
     use_selection: BoolProperty(
         name="Selected Objects",
         description="Export selected and visible objects only",
-        default=False,
+        default=True,
     )
     use_visible: BoolProperty(
         name='Visible Objects',
@@ -408,7 +408,7 @@ class ExportStellarBladeFBX(bpy.types.Operator, ExportHelper):
                ('OTHER', "Other", "Other geometry types, like curve, metaball, etc. (converted to meshes)"),
                ),
         description="Which kind of object to export",
-        default={'EMPTY', 'CAMERA', 'LIGHT', 'ARMATURE', 'MESH', 'OTHER'},
+        default={'CAMERA', 'ARMATURE', 'MESH'},
     )
 
     use_mesh_modifiers: BoolProperty(
@@ -462,12 +462,12 @@ class ExportStellarBladeFBX(bpy.types.Operator, ExportHelper):
         name="Tangent Space",
         description="Add binormal and tangent vectors, together with normal they form the tangent space "
         "(will only work correctly with tris/quads only meshes!)",
-        default=True,
+        default=False,
     )
     use_triangles: BoolProperty(
         name="Triangulate Faces",
         description="Convert all faces to triangles",
-        default=True,
+        default=False,
     )
     use_custom_props: BoolProperty(
         name="Custom Properties",
